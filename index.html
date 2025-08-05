@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>SEO &amp; GEO Checkliste für Webflow</title>
+<style>
+  /* Basic styling for the checklist */
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.4;
+    background: #f7f7f7;
+    margin: 0;
+    padding: 20px;
+  }
+  .seo-checklist {
+    max-width: 1000px;
+    margin: auto;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 20px;
+  }
+  h2 {
+    margin-top: 0;
+    text-align: center;
+  }
+  .checklist-section {
+    margin-top: 20px;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+  }
+  .checklist-section:first-of-type {
+    border-top: none;
+    padding-top: 0;
+  }
+  .checklist-section h3 {
+    margin: 0 0 10px 0;
+    color: #333;
+  }
+  ul.task-list {
+    list-style: none;
+    padding-left: 0;
+  }
+  ul.task-list li {
+    margin-bottom: 6px;
+    display: flex;
+    align-items: flex-start;
+  }
+  ul.task-list input[type=checkbox] {
+    margin-right: 8px;
+    margin-top: 2px;
+  }
+  .add-task {
+    margin-top: 10px;
+  }
+  .add-task input {
+    padding: 6px;
+    width: 70%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  .add-task button {
+    padding: 6px 12px;
+    margin-left: 6px;
+    background: #0073e6;
+    border: none;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  .add-task button:hover {
+    background: #005bb5;
+  }
+</style>
+</head>
+<body>
+<div class="seo-checklist">
+  <h2>SEO &amp; GEO Checkliste für Webflow</h2>
+  <p>Nutze diese Checkliste, um sicherzustellen, dass deine Webflow‑Website sowohl für traditionelle Suchmaschinen (SEO) als auch für Generative Engines (GEO/LLM) optimiert ist. Du kannst jeden Punkt abhaken und neue Aufgaben pro Bereich hinzufügen.</p>
+
+  <!-- Technisches SEO & Setup -->
+  <div class="checklist-section">
+    <h3>Technisches SEO &amp; Setup</h3>
+    <ul class="task-list">
+      <li><label><input type="checkbox"> Eigene Domain verbinden und 301‑Weiterleitungen (alte URLs → neue URLs) einrichten.</label></li>
+      <li><label><input type="checkbox"> HTTPS aktivieren (SSL) und HSTS erzwingen.</label></li>
+      <li><label><input type="checkbox"> Ladezeiten optimieren (Bilder komprimieren/WebP, Code minifizieren, Lazy‑Loading nutzen).</label></li>
+      <li><label><input type="checkbox"> Responsive Design testen und <code>&lt;meta name="viewport"&gt;</code> korrekt einrichten.</label></li>
+      <li><label><input type="checkbox"> Sauberen HTML‑Code und sinnvolle Überschriften‑Hierarchie (H1–H3) sicherstellen.</label></li>
+      <li><label><input type="checkbox"> <strong>robots.txt</strong> erstellen: Nicht indexrelevante Seiten (z.&nbsp;B. Staging, Suchresultate, duplizierte Seiten, Login‑Bereiche) ausschließen.</label></li>
+      <li><label><input type="checkbox"> <strong>robots.txt</strong> in Webflow einrichten (Projekt&nbsp;&gt;&nbsp;Settings&nbsp;&gt;&nbsp;SEO&nbsp;&gt;&nbsp;Indexing).</label></li>
+      <li><label><input type="checkbox"> XML‑Sitemap generieren und in der <code>robots.txt</code> verlinken; in Search Console einreichen.</label></li>
+      <li><label><input type="checkbox"> Canonical‑Tags setzen, um doppelte Inhalte zu vermeiden.</label></li>
+      <li><label><input type="checkbox"> Individuelle 404‑Seite gestalten und Redirects (301) für gelöschte Seiten anlegen.</label></li>
+      <li><label><input type="checkbox"> Favicon und Web App Manifest hinzufügen.</label></li>
+      <li><label><input type="checkbox"> Dies ist ein Test.</label></li>
+    </ul>
+  </div>
+
+  <!-- Inhalt & On-Page SEO -->
+  <div class="checklist-section">
+    <h3>Inhalt &amp; On‑Page SEO</h3>
+    <ul class="task-list">
+      <li><label><input type="checkbox"> Einzigartige Title‑Tags (50–60 Zeichen) mit Hauptkeyword am Anfang erstellen.</label></li>
+      <li><label><input type="checkbox"> Individuelle Meta‑Beschreibungen (150–160 Zeichen, mobil ~120) schreiben; klaren Nutzen vermitteln.</label></li>
+      <li><label><input type="checkbox"> Überschriftenstruktur H1/H2/H3 nutzen; nutzerorientierte oder fragebasierte Zwischenüberschriften.</label></li>
+      <li><label><input type="checkbox"> Content in modularen 75–300‑Wort‑Abschnitten gliedern; jeder Abschnitt beantwortet eine konkrete Frage.</label></li>
+      <li><label><input type="checkbox"> Kurze, verständliche Sätze (15–20 Wörter) und Bullet‑Points/Tabellen verwenden.</label></li>
+      <li><label><input type="checkbox"> Semantische Themenrelevanz statt Keyword‑Stopfen: Synonyme und verwandte Begriffe natürlich einbauen.</label></li>
+      <li><label><input type="checkbox"> Aussagekräftige Alt‑Texte und Bildunterschriften erstellen; nur relevante Grafiken einbinden.</label></li>
+      <li><label><input type="checkbox"> Open‑Graph‑Tags (og:title, og:description, og:image) pro Seite definieren.</label></li>
+      <li><label><input type="checkbox"> Meta‑Robots‑Tag verwenden (index/noindex, follow/nofollow) um Indexierung zu steuern.</label></li>
+      <li><label><input type="checkbox"> Strukturierte Daten (JSON‑LD): FAQ, HowTo, Article, Product, Organization, LocalBusiness etc. implementieren.</label></li>
+      <li><label><input type="checkbox"> LLM‑Datei oder <code>llm.txt</code> bereitstellen: zentrale Inhalte, Themen und Quellen für generative Modelle zusammenfassen.</label></li>
+    </ul>
+    <div class="add-task">
+      <input type="text" placeholder="Neue Aufgabe hinzufügen…" class="new-task-input">
+      <button type="button" onclick="addTask(this)">Hinzufügen</button>
+    </div>
+  </div>
+
+  <!-- Autorität & Vertrauen -->
+  <div class="checklist-section">
+    <h3>Autorität &amp; Vertrauen (E‑A‑T)</h3>
+    <ul class="task-list">
+      <li><label><input type="checkbox"> Autor‑Biografien mit Qualifikationen und Links zu Profilen einbinden.</label></li>
+      <li><label><input type="checkbox"> Publikations‑ und Aktualisierungsdaten sichtbar machen und regelmäßig aktualisieren.</label></li>
+      <li><label><input type="checkbox"> Daten und Aussagen mit verlässlichen Quellen belegen; Studien und Statistiken verlinken.</label></li>
+      <li><label><input type="checkbox"> Eigene Forschung, Fallstudien und einzigartige Frameworks bereitstellen.</label></li>
+      <li><label><input type="checkbox"> Backlinks von vertrauenswürdigen Websites und Zitate in Fachartikeln anstreben.</label></li>
+      <li><label><input type="checkbox"> Kontaktinformationen und Impressum/Datenschutzerklärung deutlich platzieren.</label></li>
+    </ul>
+    <div class="add-task">
+      <input type="text" placeholder="Neue Aufgabe hinzufügen…" class="new-task-input">
+      <button type="button" onclick="addTask(this)">Hinzufügen</button>
+    </div>
+  </div>
+
+  <!-- Off‑Page & interne Verlinkung -->
+  <div class="checklist-section">
+    <h3>Off‑Page &amp; interne Verlinkung</h3>
+    <ul class="task-list">
+      <li><label><input type="checkbox"> Sämtliche Seiten in sinnvolle Kategorien (Themencluster) einordnen und untereinander verlinken.</label></li>
+      <li><label><input type="checkbox"> Interne Links mit beschreibenden Ankertexten setzen (Pillar‑Pages &amp; Content‑Cluster).</label></li>
+      <li><label><input type="checkbox"> Externe Verlinkungen zu seriösen Quellen einbauen; Gastartikel und Zitate platzieren.</label></li>
+      <li><label><input type="checkbox"> Share‑Buttons für soziale Netzwerke integrieren.</label></li>
+    </ul>
+    <div class="add-task">
+      <input type="text" placeholder="Neue Aufgabe hinzufügen…" class="new-task-input">
+      <button type="button" onclick="addTask(this)">Hinzufügen</button>
+    </div>
+  </div>
+
+  <!-- Lokales SEO & GEO (Generative Engine Optimierung) -->
+  <div class="checklist-section">
+    <h3>Lokales SEO &amp; GEO/LLM‑Optimierung</h3>
+    <ul class="task-list">
+      <li><label><input type="checkbox"> Unternehmens‑NAP (Name, Adresse, Telefon) und Öffnungszeiten überall einheitlich angeben.</label></li>
+      <li><label><input type="checkbox"> Google‑Maps‑Einbindung und LocalBusiness‑Schema mit Geo‑Koordinaten verwenden.</label></li>
+      <li><label><input type="checkbox"> Mehrsprachigkeit mit <code>hreflang</code> und Sprach‑Metadaten verwalten.</label></li>
+      <li><label><input type="checkbox"> Klare Erwähnung von Orten, Personen und Produkten; Entitäten eindeutig benennen.</label></li>
+      <li><label><input type="checkbox"> Inhalte in Frage‑Antwort‑Form strukturieren; mögliche Folgefragen beantworten.</label></li>
+      <li><label><input type="checkbox"> Seitenstruktur (H1 &gt; H2 &gt; H3), FAQs, Bullet‑Listen, Tabellen und Vergleichsabschnitte für LLM‑Lesbarkeit.</label></li>
+      <li><label><input type="checkbox"> Robots.txt für generative Crawler freigeben (z.&nbsp;B. GPTBot, Perplexity, Gemini).</label></li>
+      <li><label><input type="checkbox"> Sichtbarkeit in AI‑Antworten testen (ChatGPT, Gemini, Perplexity) und Ergebnisse dokumentieren.</label></li>
+    </ul>
+    <div class="add-task">
+      <input type="text" placeholder="Neue Aufgabe hinzufügen…" class="new-task-input">
+      <button type="button" onclick="addTask(this)">Hinzufügen</button>
+    </div>
+  </div>
+
+  <!-- Wartung & Monitoring -->
+  <div class="checklist-section">
+    <h3>Wartung &amp; Monitoring</h3>
+    <ul class="task-list">
+      <li><label><input type="checkbox"> Google Search Console und Bing Webmaster Tools einrichten; Crawling‑Fehler und Indexierung überwachen.</label></li>
+      <li><label><input type="checkbox"> AI‑Suchtests regelmäßig durchführen; Ergebnisse (Citations) dokumentieren.</label></li>
+      <li><label><input type="checkbox"> Website‑Audit vierteljährlich: Inhalt aktualisieren, Statistiken erneuern, „Last Updated" anzeigen.</label></li>
+      <li><label><input type="checkbox"> Duplicate Content prüfen und gegebenenfalls kanonisieren oder umleiten.</label></li>
+      <li><label><input type="checkbox"> Barrierefreiheit (Alt‑Texte, ARIA‑Labels, Kontrast) sicherstellen.</label></li>
+      <li><label><input type="checkbox"> Performance‑Tools (PageSpeed Insights) zur Überwachung von Ladezeit, Core Web Vitals und HTTPS nutzen.</label></li>
+      <li><label><input type="checkbox"> Analytics (z.&nbsp;B. Google Analytics, privacy‑konforme Alternativen) integrieren.</label></li>
+    </ul>
+    <div class="add-task">
+      <input type="text" placeholder="Neue Aufgabe hinzufügen…" class="new-task-input">
+      <button type="button" onclick="addTask(this)">Hinzufügen</button>
+    </div>
+  </div>
+
+</div>
+<script>
+// Fügt einer Liste innerhalb eines Abschnitts eine neue Aufgabe hinzu
+function addTask(button) {
+  var section = button.closest('.checklist-section');
+  var input = section.querySelector('.new-task-input');
+  var text = input.value.trim();
+  if (text !== '') {
+    var li = document.createElement('li');
+    var label = document.createElement('label');
+    var checkbox = document.createElement('input');
+    checkbox.type = 'checkbox';
+    checkbox.style.marginRight = '8px';
+    label.appendChild(checkbox);
+    label.appendChild(document.createTextNode(' ' + text));
+    li.appendChild(label);
+    section.querySelector('ul.task-list').appendChild(li);
+    input.value = '';
+  }
+}
+</script>
+</body>
+</html>
