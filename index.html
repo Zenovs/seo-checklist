@@ -46,11 +46,6 @@
       <li><label><input type="checkbox"> LLM‑Datei oder <code>llm.txt</code> bereitstellen: zentrale Inhalte, Themen und Quellen für generative Modelle zusammenfassen.</label></li>
  
     </ul>
-    <div class="add-task">
-      <input type="text" placeholder="Neue Aufgabe hinzufügen…" class="new-task-input">
-      <button type="button" onclick="addTask(this)">Hinzufügen</button>
-    </div>
-  </div>
 
   <!-- Autorität & Vertrauen -->
   <div class="checklist-section">
@@ -64,11 +59,6 @@
       <li><label><input type="checkbox"> Kontaktinformationen und Impressum/Datenschutzerklärung deutlich platzieren.</label></li>
     
     </ul>
-    <div class="add-task">
-      <input type="text" placeholder="Neue Aufgabe hinzufügen…" class="new-task-input">
-      <button type="button" onclick="addTask(this)">Hinzufügen</button>
-    </div>
-  </div>
 
   <!-- Off‑Page & interne Verlinkung -->
   <div 
@@ -80,11 +70,6 @@
       <li><label><input type="checkbox"> Externe Verlinkungen zu seriösen Quellen einbauen; Gastartikel und Zitate platzieren.</label></li>
       <li><label><input type="checkbox"> Share‑Buttons für soziale Netzwerke integrieren.</label></li>
     </ul>
-    <div class="add-task">
-      <input type="text" placeholder="Neue Aufgabe hinzufügen…" class="new-task-input">
-      <button type="button" onclick="addTask(this)">Hinzufügen</button>
-    </div>
-  </div>
 
   <!-- Lokales SEO & GEO (Generative Engine Optimierung) -->
   <div class="checklist-section">
@@ -99,12 +84,7 @@
       <li><label><input type="checkbox"> Robots.txt für generative Crawler freigeben (z.&nbsp;B. GPTBot, Perplexity, Gemini).</label></li>
       <li><label><input type="checkbox"> Sichtbarkeit in AI‑Antworten testen (ChatGPT, Gemini, Perplexity) und Ergebnisse dokumentieren.</label></li>
     </ul>
-    <div class="a
-      dd-task">
-      <input type="text" placeholder="Neue Aufgabe hinzufügen…" class="new-task-input">
-      <button type="button" onclick="addTask(this)">Hinzufügen</button>
-    </div>
-  </div>
+
 
   <!-- Wartung & Monitoring -->
   <div class="checklist-section">
@@ -119,32 +99,8 @@
       <li><label><input type="checkbox"> Performance‑Tools (PageSpeed Insights) zur Überwachung von Ladezeit, Core Web Vitals und HTTPS nutzen.</label></li>
       <li><label><input type="checkbox"> Analytics (z.&nbsp;B. Google Analytics, privacy‑konforme Alternativen) integrieren.</label></li>
     </ul>
-    <div class="add-task">
-      <input type="text" placeholder="Neue Aufgabe hinzufügen…" class="new-task-input">
-      <button type="button" onclick="addTask(this)">Hinzufügen</button>
-    </div>
-  </div>
+
 
 </div>
-<script>
-// Fügt einer Liste innerhalb eines Abschnitts eine neue Aufgabe hinzu
-function addTask(button) {
-  var section = button.closest('.checklist-section');
-  var input = section.querySelector('.new-task-input');
-  var text = input.value.trim();
-  if (text !== '') {
-    var li = document.createElement('li');
-    var label = document.createElement('label');
-    var checkbox = document.createElement('input');
-    checkbox.type = 'checkbox';
-    checkbox.style.marginRight = '8px';
-    label.appendChild(checkbox);
-    label.appendChild(document.createTextNode(' ' + text));
-    li.appendChild(label);
-    section.querySelector('ul.task-list').appendChild(li);
-    input.value = '';
-  }
-}
-</script>
 </body>
 </html>
