@@ -1,23 +1,55 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="de" data-theme="light">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SEO &amp; GEO Checkliste für Webflow</title>
   <meta name="description" content="Praktische Checkliste für SEO, GEO und AI-Optimierung in Webflow. Mit Speicher, Export und Snippets für die Schweiz.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    (function () {
+      try {
+        var savedTheme = localStorage.getItem('seo-checklist-theme');
+        if (savedTheme) {
+          document.documentElement.dataset.theme = savedTheme;
+        }
+      } catch (error) {
+        /* localStorage nicht verfügbar */
+      }
+    })();
+  </script>
   <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
   <header class="page-header">
-    <h1>SEO &amp; GEO Checkliste für Webflow</h1>
-    <p class="intro">Arbeite Schritt für Schritt. Setze Häkchen, lade Code-Snippets und exportiere die Liste für dein Team.</p>
-    <div class="control-group" aria-label="Checklistenaktionen">
-      <button type="button" class="control-button" data-action="open-all">Alle öffnen</button>
-      <button type="button" class="control-button" data-action="close-all">Alle schliessen</button>
-      <button type="button" class="control-button" data-action="reset">Reset</button>
-      <button type="button" class="control-button primary" data-action="export">Checkliste als CSV exportieren</button>
+    <div class="header-top">
+      <div class="title-group">
+        <h1>SEO &amp; GEO Checkliste für Webflow</h1>
+        <p class="intro">Arbeite Schritt für Schritt. Setze Häkchen, lade Code-Snippets und exportiere die Liste für dein Team.</p>
+      </div>
+      <button type="button" class="theme-toggle" data-action="toggle-theme" aria-pressed="false" aria-label="Darstellung umschalten">
+        <span class="toggle-track" aria-hidden="true">
+          <span class="toggle-thumb"></span>
+          <span class="toggle-icon toggle-icon-sun" aria-hidden="true">☀️</span>
+          <span class="toggle-icon toggle-icon-moon" aria-hidden="true">🌙</span>
+        </span>
+        <span class="toggle-text">
+          <span class="toggle-title" data-theme-label>Dark Mode</span>
+          <span class="toggle-caption">Wechsle den Look</span>
+        </span>
+      </button>
     </div>
-    <p class="progress" id="overall-progress" aria-live="polite"></p>
+    <div class="control-panel">
+      <div class="control-group" aria-label="Checklistenaktionen">
+        <button type="button" class="control-button" data-action="open-all">Alle öffnen</button>
+        <button type="button" class="control-button" data-action="close-all">Alle schliessen</button>
+        <button type="button" class="control-button" data-action="reset">Reset</button>
+        <button type="button" class="control-button primary" data-action="export">Checkliste als CSV exportieren</button>
+      </div>
+      <p class="progress" id="overall-progress" aria-live="polite"></p>
+    </div>
   </header>
 
   <main>
