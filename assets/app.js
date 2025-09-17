@@ -171,16 +171,6 @@ const checklistItems = [
 
 const snippetSources = [
   {
-    id: 'snippet-head',
-    title: 'Meta & OG Head Vorlage',
-    path: 'snippets/webflow-head.html'
-  },
-  {
-    id: 'snippet-footer',
-    title: 'Footer Helper JS',
-    path: 'snippets/webflow-footer.html'
-  },
-  {
     id: 'snippet-hreflang',
     title: 'hreflang de-CH / fr-CH / it-CH',
     path: 'snippets/hreflang/de-fr-it-CH.html'
