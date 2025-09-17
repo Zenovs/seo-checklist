@@ -84,6 +84,27 @@ const checklistItems = [
     example: 'Beispiel: /impressum → Interne Seite Impressum'
   },
   {
+    id: 'trust-privacy',
+    category: 'Vertrauen',
+    title: 'Datenschutzerklärung veröffentlichen',
+    webflow: 'Webflow → Pages → Datenschutz → Rich text bearbeiten',
+    example: 'Beispiel: CH-konforme Datenschutzerklärung mit Cookie-Abschnitt einfügen'
+  },
+  {
+    id: 'trust-imprint',
+    category: 'Vertrauen',
+    title: 'Impressum mit Pflichtangaben pflegen',
+    webflow: 'Webflow → Pages → Impressum → Inhalte ergänzen',
+    example: 'Beispiel: Firmenname, Adresse, UID und Kontakt gemäss CH-Recht'
+  },
+  {
+    id: 'trust-cookies',
+    category: 'Vertrauen',
+    title: 'Cookie Banner & Policy integrieren',
+    webflow: 'Webflow → Project settings → Privacy & Cookies → Cookie consent aktivieren',
+    example: 'Beispiel: Consent-Tool eingebunden und Link zur Cookie-Policy gesetzt'
+  },
+  {
     id: 'trust-reviews',
     category: 'Vertrauen',
     title: 'Bewertungen integrieren',
@@ -199,9 +220,11 @@ const snippetSources = [
 
 const storageKey = 'seo-checklist-state-v1';
 const themeStorageKey = 'seo-checklist-theme';
+const clientStateKey = '__clientName';
 
 document.addEventListener('DOMContentLoaded', () => {
   initThemeToggle();
+  initClientField();
   renderChecklist();
   setupControls();
   loadSnippets();
@@ -222,6 +245,55 @@ function saveState(state) {
     window.localStorage.setItem(storageKey, JSON.stringify(state));
   } catch (error) {
     console.error('Konnte Speicher nicht schreiben', error);
+  }
+}
+
+function getClientNameFromState(state) {
+  const value = state && typeof state[clientStateKey] === 'string' ? state[clientStateKey].trim() : '';
+  return value;
+}
+
+function initClientField() {
+  const input = document.querySelector('[data-client-input]');
+  if (!input) {
+    return;
+  }
+
+  const currentState = loadState();
+  const initialName = getClientNameFromState(currentState);
+  if (initialName) {
+    input.value = initialName;
+    if (currentState[clientStateKey] !== initialName) {
+      currentState[clientStateKey] = initialName;
+      saveState(currentState);
+    }
+  } else if (currentState[clientStateKey]) {
+    delete currentState[clientStateKey];
+    saveState(currentState);
+  }
+  updateClientOutput(initialName);
+
+  input.addEventListener('input', () => {
+    const nextState = loadState();
+    const name = input.value.trim();
+    if (name) {
+      nextState[clientStateKey] = name;
+    } else {
+      delete nextState[clientStateKey];
+    }
+    saveState(nextState);
+    updateClientOutput(name);
+  });
+}
+
+function updateClientOutput(name) {
+  const output = document.querySelector('[data-client-output]');
+  if (output) {
+    const progressContainer = output.closest('.client-progress');
+    if (progressContainer) {
+      progressContainer.dataset.state = name ? 'filled' : 'empty';
+    }
+    output.textContent = name ? name : 'Kein Kunde gesetzt';
   }
 }
 
@@ -318,6 +390,7 @@ function updateProgress() {
   const done = checklistItems.filter((item) => saved[item.id]).length;
   const overall = document.getElementById('overall-progress');
   overall.textContent = `${done} von ${total} Aufgaben erledigt`;
+  updateClientOutput(getClientNameFromState(saved));
 
   const categoryTotals = checklistItems.reduce((acc, item) => {
     if (!acc[item.category]) {
@@ -366,6 +439,11 @@ function setupControls() {
       document.querySelectorAll('.task input[type="checkbox"]').forEach((checkbox) => {
         checkbox.checked = false;
       });
+      const clientInput = document.querySelector('[data-client-input]');
+      if (clientInput) {
+        clientInput.value = '';
+      }
+      updateClientOutput('');
       updateProgress();
     });
   });

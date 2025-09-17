@@ -41,6 +41,19 @@
         </span>
       </button>
     </div>
+    <div class="client-panel" aria-label="Kundennamen speichern">
+      <label for="client-name">Kunde / Projekt</label>
+      <input
+        type="text"
+        id="client-name"
+        name="client-name"
+        data-client-input
+        placeholder="z.B. Kauwerk Dental Visp"
+        autocomplete="off"
+        aria-describedby="client-hint"
+      >
+      <p class="client-hint" id="client-hint">Wird lokal gespeichert, bis du Reset klickst.</p>
+    </div>
     <div class="control-panel">
       <div class="control-group" aria-label="Checklistenaktionen">
         <button type="button" class="control-button" data-action="open-all">Alle öffnen</button>
@@ -48,7 +61,10 @@
         <button type="button" class="control-button" data-action="reset">Reset</button>
         <button type="button" class="control-button primary" data-action="export">Checkliste als CSV exportieren</button>
       </div>
-      <p class="progress" id="overall-progress" aria-live="polite"></p>
+      <div class="status-group">
+        <p class="progress" id="overall-progress" aria-live="polite"></p>
+        <p class="client-progress" aria-live="polite" data-state="empty">Kunde: <span data-client-output>Kein Kunde gesetzt</span></p>
+      </div>
     </div>
   </header>
 
