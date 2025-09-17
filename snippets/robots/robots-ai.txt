@@ -1,0 +1,11 @@
+# Erweiterung für AI-Crawler
+User-agent: GPTBot
+Allow: /
+Disallow: /intern/
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /intern/
+
+# Hinweis für Team
+# Passe die Ordnerliste an, wenn Bereiche privat bleiben sollen.

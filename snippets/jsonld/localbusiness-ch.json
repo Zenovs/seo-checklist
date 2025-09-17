@@ -1,0 +1,38 @@
+{
+  "@context": "https://schema.org",
+  "@type": "MedicalBusiness",
+  "@id": "https://kauwerk.ch/visp/#dentallab",
+  "name": "Kauwerk Dentaltechnik Visp",
+  "image": "https://kauwerk.ch/images/visp-dentaltechnik.jpg",
+  "url": "https://kauwerk.ch/visp/",
+  "telephone": "+41 27 000 00 00",
+  "priceRange": "CHF",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Bahnhofstrasse 10",
+    "addressLocality": "Visp",
+    "postalCode": "3930",
+    "addressCountry": "CH"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 46.2938,
+    "longitude": 7.8818
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday"],
+      "opens": "08:00",
+      "closes": "17:30"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Friday",
+      "opens": "08:00",
+      "closes": "16:00"
+    }
+  ],
+  "medicalSpecialty": "Dentistry",
+  "availableLanguage": ["de-CH", "fr-CH", "it-CH"]
+}

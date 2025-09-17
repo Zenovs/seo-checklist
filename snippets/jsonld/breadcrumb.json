@@ -1,0 +1,24 @@
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Startseite",
+      "item": "https://kauwerk.ch/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Dentaltechnik",
+      "item": "https://kauwerk.ch/dentaltechnik/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Visp",
+      "item": "https://kauwerk.ch/visp/"
+    }
+  ]
+}
