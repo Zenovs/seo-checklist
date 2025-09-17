@@ -208,8 +208,10 @@ const snippetSources = [
 ];
 
 const storageKey = 'seo-checklist-state-v1';
+const themeStorageKey = 'seo-checklist-theme';
 
 document.addEventListener('DOMContentLoaded', () => {
+  initThemeToggle();
   renderChecklist();
   setupControls();
   loadSnippets();
@@ -383,6 +385,76 @@ function setupControls() {
       exportChecklist();
     });
   });
+}
+
+function initThemeToggle() {
+  const toggleButton = document.querySelector('[data-action="toggle-theme"]');
+  if (!toggleButton) {
+    return;
+  }
+
+  const storedTheme = readStoredTheme();
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+  const initialTheme = storedTheme || (prefersDark.matches ? 'dark' : 'light');
+
+  applyTheme(initialTheme);
+
+  const handlePreferenceChange = (event) => {
+    if (!readStoredTheme()) {
+      applyTheme(event.matches ? 'dark' : 'light');
+    }
+  };
+
+  if (typeof prefersDark.addEventListener === 'function') {
+    prefersDark.addEventListener('change', handlePreferenceChange);
+  } else if (typeof prefersDark.addListener === 'function') {
+    prefersDark.addListener(handlePreferenceChange);
+  }
+
+  toggleButton.addEventListener('click', () => {
+    const nextTheme = document.body.dataset.theme === 'dark' ? 'light' : 'dark';
+    applyTheme(nextTheme, true);
+  });
+}
+
+function applyTheme(theme, persist = false) {
+  document.documentElement.dataset.theme = theme;
+  document.body.dataset.theme = theme;
+
+  const toggleButton = document.querySelector('[data-action="toggle-theme"]');
+  if (toggleButton) {
+    toggleButton.setAttribute('aria-pressed', theme === 'dark' ? 'true' : 'false');
+    toggleButton.setAttribute(
+      'title',
+      theme === 'dark' ? 'Wechsle zu Light Mode' : 'Wechsle zu Dark Mode'
+    );
+
+    const label = toggleButton.querySelector('[data-theme-label]');
+    if (label) {
+      label.textContent = theme === 'dark' ? 'Light Mode' : 'Dark Mode';
+    }
+  }
+
+  if (persist) {
+    writeStoredTheme(theme);
+  }
+}
+
+function readStoredTheme() {
+  try {
+    return window.localStorage.getItem(themeStorageKey);
+  } catch (error) {
+    console.error('Konnte Theme nicht lesen', error);
+    return null;
+  }
+}
+
+function writeStoredTheme(theme) {
+  try {
+    window.localStorage.setItem(themeStorageKey, theme);
+  } catch (error) {
+    console.error('Konnte Theme nicht speichern', error);
+  }
 }
 
 function exportChecklist() {
