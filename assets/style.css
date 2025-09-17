@@ -1,0 +1,255 @@
+:root {
+  color-scheme: light dark;
+  --bg: #f5f7fa;
+  --card: #ffffff;
+  --text: #1a1c1f;
+  --accent: #0f62fe;
+  --accent-dark: #0043ce;
+  --border: #d6d9df;
+  --success: #0e8a00;
+  font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.55;
+}
+
+.page-header,
+main,
+.page-footer {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem;
+}
+
+.page-header {
+  text-align: left;
+}
+
+.page-header h1 {
+  margin-bottom: 0.5rem;
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+}
+
+.intro {
+  margin: 0 0 1rem 0;
+  font-size: 1rem;
+}
+
+.control-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.control-button {
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text);
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.75rem;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.control-button:hover,
+.control-button:focus {
+  background: #e6f0ff;
+}
+
+.control-button.primary {
+  background: var(--accent);
+  color: #fff;
+  border-color: transparent;
+}
+
+.control-button.primary:hover,
+.control-button.primary:focus {
+  background: var(--accent-dark);
+}
+
+.progress {
+  font-weight: 600;
+  margin: 0;
+}
+
+.checklist {
+  display: grid;
+  gap: 1rem;
+}
+
+.category {
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  background: var(--card);
+  box-shadow: 0 6px 24px rgba(15, 33, 55, 0.08);
+  overflow: hidden;
+}
+
+.category summary {
+  list-style: none;
+  padding: 1rem 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+.category summary::-webkit-details-marker {
+  display: none;
+}
+
+.category summary span {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #4b5563;
+}
+
+.task-list {
+  margin: 0;
+  padding: 0 1.25rem 1.25rem;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.task {
+  display: grid;
+  gap: 0.25rem;
+  padding: 0.75rem 0.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.task:last-child {
+  border-bottom: none;
+}
+
+.task label {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-weight: 600;
+}
+
+.task label input[type="checkbox"] {
+  margin-top: 0.2rem;
+  width: 1.15rem;
+  height: 1.15rem;
+  accent-color: var(--accent);
+}
+
+.task .task-info {
+  margin-left: 2.1rem;
+  display: grid;
+  gap: 0.25rem;
+}
+
+.task .webflow-path,
+.task .example {
+  font-size: 0.9rem;
+  color: #374151;
+}
+
+.task.completed {
+  background: linear-gradient(90deg, rgba(14, 138, 0, 0.08), transparent);
+}
+
+.task.completed label {
+  color: var(--success);
+}
+
+.snippets {
+  margin-top: 2rem;
+}
+
+.snippets h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.snippet-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.snippet-card {
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  background: var(--card);
+  padding: 1rem;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.snippet-card header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.snippet-card h3 {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.copy-button {
+  border: 1px solid var(--accent);
+  background: transparent;
+  color: var(--accent);
+  padding: 0.35rem 0.6rem;
+  border-radius: 0.6rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.copy-button:hover,
+.copy-button:focus {
+  background: rgba(15, 98, 254, 0.1);
+}
+
+.snippet-content {
+  background: #0f172a;
+  color: #e2e8f0;
+  padding: 0.75rem;
+  border-radius: 0.75rem;
+  overflow-x: auto;
+  font-family: 'Fira Code', Consolas, 'Courier New', monospace;
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+.page-footer {
+  font-size: 0.85rem;
+  color: #4b5563;
+  text-align: left;
+}
+
+@media (max-width: 640px) {
+  .control-group {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .control-button {
+    width: 100%;
+  }
+
+  .task label {
+    align-items: center;
+  }
+
+  .task .task-info {
+    margin-left: 1.9rem;
+  }
+}
