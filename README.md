@@ -8,8 +8,5 @@
 - Mit **Alle öffnen** oder **Alle schliessen** steuerst du die Akkordeons.
 - Exportiere den Stand als CSV. Teile die Datei im Team-Drive, damit alle auf dem Laufenden bleiben.
 
-## Snippets
-Unter „Snippets“ findest du Vorlagen für hreflang, JSON-LD und Robots-Anweisungen. Klick auf **Kopieren**, füge den Code in Webflow an den passenden Stellen ein. Die JSON-Dateien lassen sich im Rich-Text oder in der Head-Sektion inline verwenden.
-
 ## CSV-Vorlage
 `docs/checklist.csv` enthält alle Aufgaben als Ausgangspunkt für Planungen oder Imports.
