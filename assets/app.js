@@ -190,34 +190,6 @@ const checklistItems = [
   }
 ];
 
-const snippetSources = [
-  {
-    id: 'snippet-hreflang',
-    title: 'hreflang de-CH / fr-CH / it-CH',
-    path: 'snippets/hreflang/de-fr-it-CH.html'
-  },
-  {
-    id: 'snippet-org',
-    title: 'Organization JSON-LD',
-    path: 'snippets/jsonld/organization.json'
-  },
-  {
-    id: 'snippet-local',
-    title: 'LocalBusiness CH JSON-LD',
-    path: 'snippets/jsonld/localbusiness-ch.json'
-  },
-  {
-    id: 'snippet-breadcrumb',
-    title: 'Breadcrumb JSON-LD',
-    path: 'snippets/jsonld/breadcrumb.json'
-  },
-  {
-    id: 'snippet-robots',
-    title: 'Robots Erweiterung für AI-Crawler',
-    path: 'snippets/robots/robots-ai.txt'
-  }
-];
-
 const storageKey = 'seo-checklist-state-v1';
 const themeStorageKey = 'seo-checklist-theme';
 const clientStateKey = '__clientName';
@@ -227,7 +199,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initClientField();
   renderChecklist();
   setupControls();
-  loadSnippets();
 });
 
 function loadState() {
@@ -549,89 +520,4 @@ function exportChecklist() {
   link.download = `webflow-seo-checkliste-${timestamp}.csv`;
   link.click();
   URL.revokeObjectURL(url);
-}
-
-function loadSnippets() {
-  const grid = document.getElementById('snippet-grid');
-  grid.innerHTML = '';
-
-  snippetSources.forEach((snippet) => {
-    const card = document.createElement('article');
-    card.className = 'snippet-card';
-
-    const header = document.createElement('header');
-    const title = document.createElement('h3');
-    title.textContent = snippet.title;
-    const button = document.createElement('button');
-    button.className = 'copy-button';
-    button.type = 'button';
-    button.textContent = 'Kopieren';
-    button.dataset.snippetId = snippet.id;
-
-    header.append(title, button);
-
-    const pre = document.createElement('pre');
-    pre.className = 'snippet-content';
-    pre.textContent = 'Lade ...';
-
-    card.append(header, pre);
-    grid.append(card);
-
-    fetch(snippet.path)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(`Status ${response.status}`);
-        }
-        return response.text();
-      })
-      .then((text) => {
-        const cleaned = text.trim();
-        pre.textContent = cleaned;
-        button.addEventListener('click', () => copyToClipboard(cleaned, button));
-      })
-      .catch((error) => {
-        pre.textContent = `Konnte Snippet nicht laden: ${error.message}`;
-        button.disabled = true;
-      });
-  });
-}
-
-function copyToClipboard(text, trigger) {
-  if (!navigator.clipboard) {
-    fallbackCopy(text, trigger);
-    return;
-  }
-
-  navigator.clipboard
-    .writeText(text)
-    .then(() => showCopied(trigger))
-    .catch(() => fallbackCopy(text, trigger));
-}
-
-function fallbackCopy(text, trigger) {
-  const textarea = document.createElement('textarea');
-  textarea.value = text;
-  textarea.setAttribute('readonly', '');
-  textarea.style.position = 'absolute';
-  textarea.style.left = '-9999px';
-  document.body.appendChild(textarea);
-  textarea.select();
-  try {
-    document.execCommand('copy');
-    showCopied(trigger);
-  } catch (error) {
-    console.error('Kopieren nicht möglich', error);
-  } finally {
-    document.body.removeChild(textarea);
-  }
-}
-
-function showCopied(trigger) {
-  const original = trigger.textContent;
-  trigger.textContent = 'Kopiert!';
-  trigger.disabled = true;
-  setTimeout(() => {
-    trigger.textContent = original;
-    trigger.disabled = false;
-  }, 1600);
 }
